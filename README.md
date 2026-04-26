@@ -17,8 +17,18 @@ The significance of the project include:
   - using ranked recommendations
 - demonstrating end to end machine learning deployment
   - data processing -> web application
+  - 
 ### Data Collection
 [Yelp Open Dataset](https://business.yelp.com/data/resources/open-dataset/)
+
+The dataset used in this project is the Yelp Open Dataset, which provides large scale information on businesses and user reviews. 
+
+#### Data Sources
+- yelp_academic_dataset_business.json: contains metadata about businesses such as name, location, categories, ratings, etc.
+- yelp_academic_dataset_review.json: contains user reveiws, including review text and ratings.
+
+#### Data Selection
+#### Data Volume
 
 ### Data Processing and Feature Engineering
 
