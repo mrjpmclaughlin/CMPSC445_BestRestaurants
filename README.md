@@ -54,15 +54,38 @@ To extract meaningful information from unstructured review text, sentiment analy
   - Values close to -1 indicate negative sentiment
   - Values near 0 indicate neutral sentiment
  
-Raw text data cannot be directly used in machine learning models so sentiment analysis was applied to transform qualitative text into quantitative numerical values, which allow the model to learn from customer reviews. For this project, we used **VADER (Valence Aware Dictionary and Sentiment Reasoner)**, a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media. However, there are limitations that apply. Since VADER is a rule-based approach, it may not fully capture complex language patterns such as sarcasm or context-dependent meaning. Despite the limitations, it still provides a fsat and effective baseline for sentiment extraction. 
+Raw text data cannot be directly used in machine learning models so sentiment analysis was applied to transform qualitative text into quantitative numerical values, which allow the model to learn from customer reviews. For this project, we used **VADER (Valence Aware Dictionary and Sentiment Reasoner)**, a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media. However, there are limitations that apply. Since VADER is a rule-based approach, it may not fully capture complex language patterns such as sarcasm or context-dependent meaning. Despite the limitations, it still provides a fast and effective method for sentiment extraction. 
 
 #### 3. Aggregation
+Since each restaurant has multiple reviews, the dataset was transformed from a review-level structure to restaurant-level structure. For each restauarnt:
+- average sentiment score across all reviews was computed
+- total number of reviews was calculated
+- average review rating was derived
+
+Machine learning models require consistent input granularity so if each review were treated as a separate data point, then restaurants with more reviews would be overrepresented. Aggregation ensures that each restaurant contributes equally to the model, which prevents bias toward businesses with high number of reviews.
+
 #### 4. Feature Engineering
+Feature engineering was performed to improve model performance and address data distribution issues. The review count for the dataset is highly skewed with most restaurants with few reviews while small number of businesses having large review counts. To reduce this imbalance, a logarithmic transformation was applied
+```bash 
+np.log1p(agg_df["review_count"])
+```
+This help prevent large restaurants from dominating the model and reduce skewness in the distribution.
+
+**Feature Set**
+
+The final features used for modeling include:
+- sentiment score
+- log review count (popularity in normalized form)
+
+These features were chosen because they capture two main factors in restaurant quality:
+- What people think (sentiment)
+- How many people think it (popularity)
 #### 5. Final Dataset
+After preprocessing and feature engineering, the dataset was transformed into a structured format which is important for supervised learning. Each row represents a restaurant with both input features and target output. It is also essential for integration with web application for real-time filtering and ranking.
 
 ### Model Development
 
-### Demo
+### Demo Video
 
 ### Discussion 
 
