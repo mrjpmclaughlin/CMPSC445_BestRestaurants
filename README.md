@@ -87,6 +87,8 @@ After preprocessing and feature engineering, the dataset was transformed into a 
 
 ### Demo Video
 
+[Video Link](https://github.com/mrjpmclaughlin/CMPSC445_BestRestaurants/tree/main/demo)
+
 ### Discussion 
 
 ### Conclusion
