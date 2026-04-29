@@ -84,13 +84,16 @@ These features were chosen because they capture two main factors in restaurant q
 After preprocessing and feature engineering, the dataset was transformed into a structured format which is important for supervised learning. Each row represents a restaurant with both input features and target output. It is also essential for integration with web application for real-time filtering and ranking.
 
 ### Model Development
-
+The two main input for the model are sentiment score and review count. The output for the model is the predicted business rating which would represent the Yelp star system.
+The algorithm we used was a random forest regressor which is an ensemble method. It uses decision trees to make predictions. Our model used 100 trees. Then the average is taken from all the trees to create the final prediction. We used this algorithm because it reduces overfitting when compared to a single decision tree and it can get non-linear relationships between features and target.
+The performance of the model was mainly measured by the RMSE and MAE. The model performed well given the methodolgy. It was able to successfully show the relationship between the sentiment and ratings. The feature importance analysis shows that both sentiment and popularity contribute to predictions. The model does have  limitations. Among them is the fact that only two features were used to predict restaurant rating so it isn't necessarily taking a lot of complexity into account. 
 ### Demo Video
 
 [Video Link](https://github.com/mrjpmclaughlin/CMPSC445_BestRestaurants/tree/main/demo)
 
 ### Discussion 
-
+The project shows that there is a relationship between review sentiment, review volume, and restaurant rating. Using sentiment scores from VADER and review counts the model was able to accurately make predictions. The random forest regressor worked well because it captured the non-linear patterns and combines multiple decision trees to help with stability. There were limitations though. the model was more on the simple side so it didn't account for other real-world factors like price or location. VADER also does not always catch linguistic nuance.
 ### Conclusion
-
+The project demonstrates ho wmachine learning can be applied to real-world text data to generate useful predictions. We were able to use concepts learned throughout the semester like preprocessing, feature engineering, and model evaluation in a practical way. The model performs within reason, but to improve accuracy more complexity would have to be introduced like more advanced text representations. 
 ### AI Usage
+AI was used to help with the website design to give it a clean look and to help with the process of running it in Colab. It was also used to help research for having the URL and using Ngrok.
