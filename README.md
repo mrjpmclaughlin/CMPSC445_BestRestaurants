@@ -99,7 +99,7 @@ Reasoning:
 - robust to noise
 
 ### Web Application
-For this prokject, the pretrained model was saved using pickle and deployed into an interactive web application using Flask. This allow users to interact with the model in real time and receive ranked restaurant recommendations. To make the web application accessible outside the local environment, Ngrok was used. Ngrok creates a secure public URL that tunnels to the local Flask server running in Google Colab. This allows the application to be accessed through a browser without needing a full cloud deployment.
+For this project, the pretrained model was saved using pickle and deployed into an interactive web application using Flask. This allow users to interact with the model in real time and receive ranked restaurant recommendations. To make the web application accessible outside the local environment, Ngrok was used. Ngrok creates a secure public URL that tunnels to the local Flask server running in Google Colab. This allows the application to be accessed through a browser without needing a full cloud deployment.
 
 How it works:
 - The Flask app runs locally on a port (e.g., 5000)
