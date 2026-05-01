@@ -87,6 +87,39 @@ After preprocessing and feature engineering, the dataset was transformed into a 
 The two main input for the model are sentiment score and review count. The output for the model is the predicted business rating which would represent the Yelp star system.
 The algorithm we used was a random forest regressor which is an ensemble method. It uses decision trees to make predictions. Our model used 100 trees. Then the average is taken from all the trees to create the final prediction. We used this algorithm because it reduces overfitting when compared to a single decision tree and it can get non-linear relationships between features and target.
 The performance of the model was mainly measured by the RMSE and MAE. The model performed well given the methodolgy. It was able to successfully show the relationship between the sentiment and ratings. The feature importance analysis shows that both sentiment and popularity contribute to predictions. The model does have  limitations. Among them is the fact that only two features were used to predict restaurant rating so it isn't necessarily taking a lot of complexity into account. 
+
+**Random Forest**
+For this project, a Random Forest regressor was used due to its ability to handle non-linear relationships and provide stable predictions with minimal tuning required. Restaurant quality is influenced by many factors like sentiment and popularity, which might not have a simple linear relationship with ratings. Random Forest models are suited for this because they combine multiple trees to capture the patterns in the data. 
+
+Reasoning:
+- Handles Non-Linearity
+- Reduce Overfitting
+- Works well with small feature set
+- Feature Importance
+- robust to noise
+
+### Web Application
+For this prokject, the pretrained model was saved using pickle and deployed into an interactive web application using Flask. This allow users to interact with the model in real time and receive ranked restaurant recommendations. To make the web application accessible outside the local environment, Ngrok was used. Ngrok creates a secure public URL that tunnels to the local Flask server running in Google Colab. This allows the application to be accessed through a browser without needing a full cloud deployment.
+
+How it works:
+- The Flask app runs locally on a port (e.g., 5000)
+- Ngrok creates a public URL
+- Requests from the URL are forwarded to the local server
+
+Key Features:
+- City filtering
+  - Users can select a specific city in Pennsylvania (PA) or view all restaurants
+- Custom ranking size
+  - Users can choose how many restaurant to display (5, 10, 20, 50)
+- Ranking
+  - Restaurants are ranked based on predicted scores from the model
+- Data Visualization
+  - Multiple chares are included for better interpretability
+    - Bar chart of top restaurants
+    - Feature importance visualization
+    - Score distribution chars
+    - Sentiment vs Predicted score plot
+
 ### Demo Video
 
 [Video Link](https://github.com/mrjpmclaughlin/CMPSC445_BestRestaurants/tree/main/demo)
